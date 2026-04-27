@@ -81,3 +81,14 @@ inputTitle.addEventListener("keydown", function (event) {
   }
 });
 loadMemes();
+
+//dz
+function renderMemes(memes) {
+    document.getElementById('memesCount').textContent = "Всего мемов: " + memes.length;
+    if (memes.length === 0) {
+        memesGrid.innerHTML = '<p class="empty-text">Мемов пока нет</p>';
+        return;
+    }
+    const html = memes.map(meme => createCardHTML(meme)).join('');
+    memesGrid.innerHTML = html;
+}
